@@ -2,15 +2,15 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: system-upgrade-controller
-  namespace: cattle-system
+  namespace: zks-system
 spec:
   selector:
     matchLabels:
-      upgrade.cattle.io/controller: system-upgrade-controller
+      upgrade.zks.io/controller: system-upgrade-controller
   template:
     metadata:
       labels:
-        upgrade.cattle.io/controller: system-upgrade-controller # necessary to avoid drain
+        upgrade.zks.io/controller: system-upgrade-controller # necessary to avoid drain
     spec:
       affinity:
         nodeAffinity:
@@ -50,7 +50,7 @@ spec:
             - name: SYSTEM_UPGRADE_CONTROLLER_NAME
               valueFrom:
                 fieldRef:
-                  fieldPath: metadata.labels['upgrade.cattle.io/controller']
+                  fieldPath: metadata.labels['upgrade.zks.io/controller']
             - name: SYSTEM_UPGRADE_CONTROLLER_NAMESPACE
               valueFrom:
                 fieldRef:
