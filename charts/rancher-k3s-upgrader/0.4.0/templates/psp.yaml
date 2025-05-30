@@ -1,4 +1,4 @@
-{{- if .Values.global.cattle.psp.enabled }}
+{{- if .Values.global.zks.psp.enabled }}
 apiVersion: policy/v1beta1
 kind: PodSecurityPolicy
 metadata:
@@ -47,5 +47,5 @@ roleRef:
 subjects:
   - kind: Group
     apiGroup: rbac.authorization.k8s.io
-    name: system:serviceaccounts:cattle-system
+    name: system:serviceaccounts:zks-system
 {{- end }}
